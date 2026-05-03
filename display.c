@@ -161,11 +161,20 @@ void printN(int64_t num){
     }
     if(num==0)printChar('0');
 }
+
+int pow(int base, int8_t exponent){
+    int ret = 1;
+    for (int8_t i = 0; i < exponent; i++){
+        ret*=base;
+    }
+    return ret;
+}
+
 void printF(float num,int8_t precision){
     int floor = (int)(num);
     printN(floor%100);
     printChar(',');
-    floor = (int)(num*(10^precision));
+    floor = (int)(num*pow(10,precision));
     printN(floor);
 
 }
